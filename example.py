@@ -28,8 +28,8 @@ def load_dataset(path):
 
 
 data = load_dataset(ANNOTATIONS_PATH)
-out = kmeans(data, k=CLUSTERS)
-print("Accuracy: {:.2f}%".format(avg_iou(data, out) * 100))
+out = kmeans(data, k=CLUSTERS) #out 表示簇中心 宽高
+print("Accuracy: {:.2f}%".format(avg_iou(data, out) * 100)) #每个框 属于最可能簇 的iou 的平均值
 print("Boxes:\n {}".format(out))
 
 ratios = np.around(out[:, 0] / out[:, 1], decimals=2).tolist()
